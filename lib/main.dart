@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       routes: {
-        '/login': (context) => LoginPage(), // Tambahkan rute untuk halaman login
-        '/signup': (context) => SignUpPage(), // Tambahkan rute untuk halaman sign up
+        '/login': (context) => LoginPage(), // Menambahkan rute untuk halaman login
+        '/signup': (context) => SignUpPage(), // Menambahkan rute untuk halaman sign up
       },
     );
   }
