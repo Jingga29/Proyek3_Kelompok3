@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'signup.dart'; // Impor halaman sign up
+import 'login.dart'; // Impor halaman login
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white, // Ganti dengan warna latar belakang yang sama dengan halaman login
       body: Stack(
         children: [
           ClipPath(
@@ -30,51 +30,53 @@ class LoginPage extends StatelessWidget {
                 children: [
                   SizedBox(height: 100),
                   Text(
-                    'Login',
+                    'Sign Up',
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 20),
-                  SizedBox(height: 30),
-                  SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 235, 136, 240).withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        prefixIcon: Icon(Icons.email, size: 28, color: Colors.purple.shade900),
-                        border: InputBorder.none,
-                      ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Full Name',
+                      prefixIcon: Icon(Icons.email, size: 28, color: Colors.purple.shade900),
+                      border: OutlineInputBorder(),
                     ),
                   ),
                   SizedBox(height: 20),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 235, 136, 240).withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      prefixIcon: Icon(Icons.email, size: 28, color: Colors.purple.shade900),
+                      border: OutlineInputBorder(),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        prefixIcon: Icon(Icons.lock, size: 28, color: Colors.purple.shade900),
-                        border: InputBorder.none,
-                      ),
-                      obscureText: true,
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.lock, size: 28, color: Colors.purple.shade900),
+                      border: OutlineInputBorder(),
                     ),
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Confirm Password',
+                      prefixIcon: Icon(Icons.lock, size: 28, color: Colors.purple.shade900),
+                      border: OutlineInputBorder(),
+                    ),
+                    obscureText: true,
                   ),
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      print('Login');
+                      // Implementasi logika untuk tombol sign up
+                      print('Sign Up');
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 15),
@@ -83,23 +85,23 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Login',
+                      'Sign Up',
                       style: TextStyle(fontSize: 18, color: Colors.purple.shade900),
                     ),
                   ),
                   SizedBox(height: 20),
                   TextButton(
                     onPressed: () {
-                      // Navigasi ke halaman sign up ketika teks diklik
+                      // Navigasi ke halaman login ketika teks diklik
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpPage()),
+                        MaterialPageRoute(builder: (context) => LoginPage()),
                       );
                     },
                     child: Text(
-                      'Belum punya akun? Sign up',
+                      'Sudah punya akun? Log in',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 190, 32, 222),
+                        color: Colors.blue,
                         fontSize: 16,
                       ),
                     ),

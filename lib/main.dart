@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'login.dart'; // Impor halaman login
+import 'signup.dart'; // Impor halaman sign up
 
 void main() {
   runApp(MyApp());
@@ -10,101 +12,109 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFF5D13E7),
+      home: MyHomePage(),
+      routes: {
+        '/login': (context) => LoginPage(), // Tambahkan rute untuk halaman login
+        '/signup': (context) => SignUpPage(), // Tambahkan rute untuk halaman sign up
+      },
+    );
+  }
+}
 
-        // body
-        body: Padding(
-          padding: const EdgeInsets.only(
-            top: 30,
-            right: 10,
-            left: 10,
-            bottom: 30,
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start, // Posisikan di atas
-              children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1), // Buat ruang kosong di atas
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Mata",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OtomanopeeOne',
-                          fontSize: 40, // Sesuaikan ukuran font sesuai kebutuhan Anda
-                          fontWeight: FontWeight.bold, // Membuat teks menjadi tebal
-                        ),
-                      ),
-                      TextSpan(
-                        text: "Fish!",
-                        style: TextStyle(
-                          color: Colors.yellow, // Atur warna kuning untuk "Fish"
-                          fontFamily: 'OtomanopeeOne',
-                          fontSize: 45, // Sesuaikan ukuran font sesuai kebutuhan Anda
-                          fontWeight: FontWeight.bold, // Membuat teks menjadi tebal
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 0), // Menambahkan jarak antara teks dan gambar
-                Image.asset(
-                  'assets/images/leleellips.png', // Ganti dengan path ke gambar Anda
-                  height: 450, // Sesuaikan tinggi gambar sesuai kebutuhan Anda
-                ),
-
-                SizedBox(height: 0), // Menambahkan jarak antara gambar dan teks
-                Text(
-                  "Get Started",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'OtomanopeeOne',
-                    fontSize: 20, // Sesuaikan ukuran font sesuai kebutuhan Anda
-                    fontWeight: FontWeight.bold, // Membuat teks menjadi tebal
-                  ),
-                ),
-
-                SizedBox(height: 10), // Menambahkan jarak antara teks dan tombol
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround, // Menempatkan tombol di antara teks secara horizontal
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFF5D13E7),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 30,
+          right: 10,
+          left: 10,
+          bottom: 30,
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+              RichText(
+                text: TextSpan(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Aksi ketika tombol Sign Up ditekan
-                      },
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold, // Membuat teks menjadi tebal
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white, // Warna latar belakang putih
+                    TextSpan(
+                      text: "Mata",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'OtomanopeeOne',
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Aksi ketika tombol Log In ditekan
-                      },
-                      child: Text(
-                        'Log In',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold, // Membuat teks menjadi tebal
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.yellow, // Warna latar belakang kuning
+                    TextSpan(
+                      text: "Fish!",
+                      style: TextStyle(
+                        color: Colors.yellow,
+                        fontFamily: 'OtomanopeeOne',
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              SizedBox(height: 0),
+              Image.asset(
+                'assets/images/leleellips.png',
+                height: 450,
+              ),
+              SizedBox(height: 0),
+              Text(
+                "Get Started",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'OtomanopeeOne',
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Aksi ketika tombol Sign Up ditekan
+                      Navigator.pushNamed(context, '/signup'); // Navigasi ke halaman sign up
+                    },
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login'); // Navigasi ke halaman login
+                    },
+                    child: Text(
+                      'Log In',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.yellow,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
